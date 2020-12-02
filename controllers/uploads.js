@@ -31,6 +31,15 @@ class Uploads {
         throw new Error("This class may not be initiated with new");
     }
 
+    static randomFile(root) {
+        const dirs = fs.readdirSync(root);
+        const length = dirs.length;
+        const getRandomIndex = length => Math.floor( Math.random() * length );
+
+        let randomIndex = getRandomIndex( length );
+        return dirs[randomIndex];
+    }
+
     static async upload(req, res) {
         upload(req, res, async error => {
             if (error) {
@@ -55,7 +64,7 @@ class Uploads {
     }
 
     static async getFile(req, res) {
-        return res.sendFile(req.params.file, {
+        return res.sendFile(randomFile(uploadDir), {
             root: uploadDir
         });
     }

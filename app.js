@@ -16,7 +16,7 @@ app.use(ratelimiter.middleware.bind(ratelimiter));
 
 app.set("trust proxy", 1);
 
-app.get("/:file", Uploads.getFile);
+app.get("/random", Uploads.getFile);
 
 app.post("/upload", Uploads.upload);
 
