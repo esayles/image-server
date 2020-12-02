@@ -1,6 +1,6 @@
 const multer = require("multer");
 const path = require("path");
-const fs = require("fs").promises;
+const fs = require("fs");
 const config = require("../config.json");
 const blacklisted = [".exe", ".bat", ".cmd", ".msi", ".sh"];
 
