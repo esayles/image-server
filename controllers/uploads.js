@@ -33,6 +33,7 @@ class Uploads {
 
     static randomFile(root) {
         const dirs = fs.readdirSync(root);
+        print(root)
         const length = dirs.length;
         const getRandomIndex = length => Math.floor( Math.random() * length );
 
