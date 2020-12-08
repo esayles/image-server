@@ -20,5 +20,5 @@ app.get("/randomfake", Uploads.getFile);
 
 // app.post("/upload", Uploads.upload); ## TODO: upload images upon app deploy
 
-app.listen(3555, () => console.log("Image server is booted up on port 3555"));
+app.listen(80, () => console.log("Image server is booted up on port 80"));
 
