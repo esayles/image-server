@@ -19,6 +19,6 @@ app.set("trust proxy", 1);
 app.get("/randomfake", Uploads.getFile);
 
 // app.post("/upload", Uploads.upload); ## TODO: upload images upon app deploy
-
-app.listen(80, () => console.log("Image server is booted up on port 80"));
+const port = process.env.PORT || 1927;
+app.listen(port, () => console.log("Image server is booted up on port " + port));
 
