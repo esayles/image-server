@@ -59,6 +59,5 @@ typings/
 
 # Custom
 package-lock.json
-config.json
 data
 yarn.lock
