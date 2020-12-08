@@ -16,9 +16,9 @@ app.use(ratelimiter.middleware.bind(ratelimiter));
 
 app.set("trust proxy", 1);
 
-app.get("/random", Uploads.getFile);
+app.get("/randomfake", Uploads.getFile);
 
-app.post("/upload", Uploads.upload);
+// app.post("/upload", Uploads.upload); ## TODO: upload images upon app deploy
 
 app.listen(3555, () => console.log("Image server is booted up on port 3555"));
 

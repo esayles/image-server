@@ -4,7 +4,7 @@ const fs = require("fs");
 const config = require("../config.json");
 const blacklisted = [".exe", ".bat", ".cmd", ".msi", ".sh"];
 
-const uploadDir = path.join(__dirname, "..", "data", "uploads");
+const uploadDir = path.join(__dirname, "..", "data", "fakes");
 
 const storage = multer.diskStorage({
     destination: uploadDir,
