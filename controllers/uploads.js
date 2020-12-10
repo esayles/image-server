@@ -9,8 +9,7 @@ const uploadDir = path.join(__dirname, "..", "data", "fakes");
 const storage = multer.diskStorage({
     destination: uploadDir,
     filename: (req, file, cb) => {
-        const [month, day, year] = new Date().toLocaleDateString("en-US", { timeZone: "Australia/Melbourne" }).split("/");
-        cb(null, `${day}-${month}-${year}-${Date.now().toString(16)}${path.extname(file.originalname)}`);
+        cb(null, `${Date.now().toString(16)}fake`);
     }
 });
 
