@@ -2,7 +2,6 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const config = require("../config.json");
-const blacklisted = [".exe", ".bat", ".cmd", ".msi", ".sh"];
 
 const uploadDir = path.join(__dirname, "..", "data", "fakes");
 
@@ -22,7 +21,7 @@ const upload = multer({
         }
         return cb(null, true);
     }
-}).array("files[]");
+}).single("file");
 
 class Uploads {
 
@@ -50,14 +49,12 @@ class Uploads {
 
             if (!req.files || !req.files.length) return res.status(400).json({ message: "No files" });
 
-            for (const file of req.files) {
-                files.push({
-                    mimetype: file.mimetype,
+            files.push({
+                    mimetype: req.file.mimetype,
                     url: `${config.domain}/${file.filename}`,
                     timestamp: Date.now()
-                });
-            }
-
+            });
+            
             return res.json({ message: `Sucessfully uploaded ${files.length} files`, files });
         });
     }

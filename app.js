@@ -22,3 +22,6 @@ app.post("/uploadfake", Uploads.upload);
 const port = process.env.PORT || 1927;
 app.listen(port, () => console.log("Image server is booted up on port " + port));
 
+app.get('/up', function(request, response){
+    response.sendFile(__dirname + '/upload.html');
+})
