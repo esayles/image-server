@@ -60,9 +60,7 @@ class Uploads {
     }
 
     static async getFile(req, res) {
-        return res.sendFile(Uploads.randomFile(uploadDir), {
-            root: uploadDir
-        });
+        return res.sendFile(path.join(uploadDir, Uploads.randomFile(uploadDir)));
     }
 
 }
